@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Калькулятор</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -10,21 +10,31 @@
 </head>
 <body>
 <div class="container">
-    <div class="row calc-row align-items-center">
-        <div class="col col-md-4 offset-md-4">
-            <div class="form-group">
-                <div class="card" id="calc">
-                    <div class="card-body">
-                        <input class="form-control input-window" id="inputWindow" value="">
-                        <div class="row no-gutters">
-                            <div class="col">
-                                <button class="btn btn-outline-danger form-control" id="btn_clr">C</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="calculator">
+        <div class="screen">
+            <div id="type" value=""></div>
+            <div id="result">00</div>
         </div>
+    <div class="numpad">
+        <button id="erace">E</button>
+        <button id="clear">C</button>
+        <button id="ni">9</button>
+        <button id="ei">8</button>
+        <button id="se">7</button>
+        <button id="si">6</button>
+        <button id="fi">5</button>
+        <button id="fo">4</button>
+        <button id="th">3</button>
+        <button id="tw">2</button>
+        <button id="one">1</button>
+        <button id="plus">+</button>
+        <button id="minus">-</button>
+        <button id="ans">=</button>
+        <button id="devide">\</button>
+        <button id="multiply">*</button>
+        <button id="Percent">%</button>
+        <button id="zr">00</button>
+    </div>
     </div>
 </div>
 <script src="script.js"></script>
