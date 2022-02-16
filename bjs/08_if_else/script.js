@@ -1,46 +1,83 @@
-let minValue = parseInt(prompt('Минимальное знание числа для игры','0'));
-let maxValue = parseInt(prompt('Максимальное знание числа для игры','100'));
-alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
-let answerNumber  = Math.floor((minValue + maxValue) / 2);
-let orderNumber = 1;
+let minValue = parseInt(prompt('Minimal number to play','0'));
+let maxValue = parseInt(prompt('Maximum number to play','100'));
+if ((minValue != Number) || (maxValue != Number)) {
+minValue = 0;
+maxValue = 100;
+}
+alert(`Geas one number from ${minValue} till ${maxValue},and i will geas it`);
+let answerNumber  = Math.floor(minValue + maxValue) /2;
+let orderNumber = 1; 
 let gameRun = true;
-
-const orderNumberField = document.getElementById('orderNumberField');
-const answerField = document.getElementById('answerField');
+const orderNumberField = document.querySelector('#orderNumberField');
+const answerField = document.querySelector('#answerField');
 
 orderNumberField.innerText = orderNumber;
-answerField.innerText = `Вы загадали число ${answerNumber }?`;
+answerField.innerText = `You geas number  ${answerNumber }?`;
 
-document.getElementById('btnRetry').addEventListener('click', function () {
-    minValue = 0;
-    maxValue = 100;
-    orderNumber = 0;
+
+
+document.querySelector('#btnRetry').addEventListener('click', function () {
+    window.location.reload(true);
 })
 
-document.getElementById('btnOver').addEventListener('click', function () {
+document.querySelector('#btnOver').addEventListener('click', function () {
     if (gameRun){
         if (minValue === maxValue){
-            const phraseRandom = Math.round( Math.random());
+            const phraseRandom = Math.round( Math.random()*2);
             const answerPhrase = (phraseRandom === 1) ?
-                `Вы загадали неправильное число!\n\u{1F914}` :
-                `Я сдаюсь..\n\u{1F92F}`;
+                `I gueas wrong number!\n\u{1F914}` :
+                `Geas some less number! \n\u{1F92F}`;
 
-            answerField.innerText = answerPhrase;
+            answerField.textContent = answerPhrase;
             gameRun = false;
         } else {
             minValue = answerNumber  + 1;
             answerNumber  = Math.floor((minValue + maxValue) / 2);
             orderNumber++;
             orderNumberField.innerText = orderNumber;
-            answerField.innerText = `Вы загадали число ${answerNumber }?`;
+            const phraseRandom = Math.round( Math.random()*2);
+            const answerPhrase = (phraseRandom === 1) ?
+                `You geas less?\n\u{1F914}`:
+                'Try other number?\n\u{1F914}';
+                `Try less?\n\u{1F92F}`;
+            answerField.textContent = answerPhrase + answerNumber;
         }
     }
 })
 
-document.getElementById('btnEqual').addEventListener('click', function () {
+document.querySelector('#btnLess').addEventListener('click', function () {
+    if (gameRun) {
+        if (minValue === maxValue){
+            const phraseRandom = Math.round( Math.random()*2);
+            const answerPhrase = (phraseRandom === 1) ?
+                `I gueas wrong number!\n\u{1F914}`:
+                `I give up..\n\u{1F92F}`;
+
+            answerField.innerText = answerPhrase;
+            gameRun = false;
+    } else {
+            minValue = answerNumber  - 1;
+            answerNumber  = Math.floor((minValue - maxValue) / 2);
+            maxValue++;
+            orderNumber++;
+            orderNumberField.innerText = orderNumber;
+            const phraseRandom = Math.round( Math.random()*2);
+            const answerPhrase = (phraseRandom === 1) ?
+                `You need bigger number?\n\u{1F914}`:
+                'Amost try again higher ?\n\u{1F914}';
+                `Try more\n\u{1F92F}`;
+            answerField.textContent = answerPhrase + answerNumber;
+    }
+}
+})
+document.querySelector('#btnEqual').addEventListener('click', function () {
     if (gameRun){
-        answerField.innerText = `Я всегда угадываю\n\u{1F60E}`
+        const phraseRandom = Math.round( Math.random() * 3);
+        const answerPhrase = (phraseRandom === 3) ?
+                     `I aways win\n\u{1F60E}`:
+                     `I just Won \u{1F973}`;
+                     'That was win lets play again';
+        answerField.innerText = answerPhrase
         gameRun = false;
     }
 })
-
