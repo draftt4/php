@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(14, 92, 92);
+}
+
+.container {
+   padding: auto;
+   margin-top: 15rem;
+}
+
+.m-0 {
+    background-color: greenyellow;
+    padding: auto;
+    font: 1.5em sans-serif;
+}
+
+.card-title {
+    background-color: gray;
+    padding: 10px 10px 10px 10px;
+    border: solid; 
+    border-color: green;
+    border-width: 5px;
+}
+
+h4 {
+    background-color: gray;
+    padding: 10px 10px 10px 10px;
+    border: solid; 
+    border-color: green;
+    border-width: 5px;
+}
+
